@@ -1,0 +1,16 @@
+---
+- name: provisioning app
+  hosts: app
+  become: yes
+
+  roles:
+    - common
+    - provision
+
+- name: web-server setup
+  hosts: prod
+  become: yes
+
+  roles:
+    - common
+    - webserver

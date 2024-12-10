@@ -1,0 +1,11 @@
+---
+# tasks file for webserver
+- name: install tomcat9
+  apt:
+    name: tomcat9
+    state: present
+
+- name: copy war file
+  copy: src=/tmp/java-tomcat-maven-example.war dest={{dest_folder}}/java-tomcat-maven-example.war
+  notify:
+    - restart tomcat9
