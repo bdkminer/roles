@@ -1,2 +1,4 @@
 ---
 dest_folder: /app
+app_username: root
+app_host: 158.160.151.8

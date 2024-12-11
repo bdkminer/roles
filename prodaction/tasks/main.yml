@@ -1,11 +1,10 @@
 ---
-# tasks file for webserver
+# tasks file for prodaction
 - name: install packages
   apt: name={{item}} state=present
   with_items:
     - default-jdk
     - tomcat9
-    state: present
 
 - name: copy war file
   copy: src=/tmp/java-tomcat-maven-example.war dest={{dest_folder}}/java-tomcat-maven-example.war

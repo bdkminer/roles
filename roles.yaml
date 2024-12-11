@@ -7,10 +7,10 @@
     - common
     - provision
 
-- name: web-server setup
+- name: prodaction setup
   hosts: prod
   become: yes
 
   roles:
     - common
-    - webserver
+    - prodaction

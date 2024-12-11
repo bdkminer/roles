@@ -17,3 +17,8 @@
   shell: "mvn package"
   args:
     chdir: "{{dest_folder}}"
+
+- name: copy war file in prodaction
+  synchronize:
+    src: {{dest_folder}}/target/java-tomcat-maven-example.war
+    dest: {{app_username}}@{{app_host}}/tmp/
