@@ -1,11 +1,20 @@
 ---
 # tasks file for webserver
-- name: install tomcat9
-  apt:
-    name: tomcat9
+- name: install packages
+  apt: name={{item}} state=present
+  with_items:
+    - default-jdk
+    - tomcat9
     state: present
 
 - name: copy war file
   copy: src=/tmp/java-tomcat-maven-example.war dest={{dest_folder}}/java-tomcat-maven-example.war
+
+- name: Change war file for tomcat
+  file:
+    path: {{dest_folder}}/java-tomcat-maven-example.war
+    owner: tomcat
+    group: tomcat
+    mode: '0644'
   notify:
-    - restart tomcat9
+    - restart tomcat9  
