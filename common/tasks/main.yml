@@ -6,5 +6,4 @@
     - tree
     - mc
     - htop
-    - ncdu
-    - links
+    - net-tools
