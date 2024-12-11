@@ -11,7 +11,7 @@
 
 - name: Change war file for tomcat
   file:
-    path: {{dest_folder}}/java-tomcat-maven-example.war
+    path: "{{dest_folder}}/java-tomcat-maven-example.war"
     owner: tomcat
     group: tomcat
     mode: '0644'

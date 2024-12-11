@@ -9,7 +9,7 @@
 - name: clone a github repository
   git:
     repo: https://github.com/daticahealth/java-tomcat-maven-example.git
-    dest: {{dest_folder}}
+    dest: "{{dest_folder}}"
     clone: yes
     update: yes
 
@@ -18,7 +18,8 @@
   args:
     chdir: "{{dest_folder}}"
 
-- name: copy war file in prodaction
-  synchronize:
-    src: {{dest_folder}}/target/java-tomcat-maven-example.war
-    dest: {{app_username}}@{{app_host}}/tmp/
+- name: copy war file in localhost
+  fetch:
+    src: "{{dest_folder}}/target/java-tomcat-maven-example.war"
+    dest: /tmp/
+    flat: yes
